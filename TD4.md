@@ -279,19 +279,8 @@ $$ \sum_{i=1}^{d} x_{i}^2=R^2$$
 
 - Ecrire une fonction utilisant la méthode Monte-Carlo pour évaluer le volume d'une hypersphère à d dimensions.
 
-```{code-cell} ipython3
----
-deletable: false
-nbgrader:
-  cell_type: code
-  checksum: 364e35a23e3dcbc3248ff3b9d0697535
-  grade: false
-  grade_id: cell-42e1a0327a262e4d
-  locked: false
-  schema_version: 3
-  solution: true
-  task: false
----
+```python
+
 N = 10**4
 def vol_hyp(R,N,d):
     xi = np.random.uniform(-R,R,size=(N,d))
@@ -302,19 +291,7 @@ def vol_hyp(R,N,d):
 
 - Calculer ce volume pour une hypersphère de rayon = 1 et en dimension n=1, 2, 3 et 4.
 
-```{code-cell} ipython3
----
-deletable: false
-nbgrader:
-  cell_type: code
-  checksum: bc1d7ca8d1ecd7208c70a960c04e868a
-  grade: false
-  grade_id: cell-de95006c98b175cb
-  locked: false
-  schema_version: 3
-  solution: true
-  task: false
----
+```python
 # Volumes en dimension 1,..,4
 v_mc = [vol_hyp(1,N,d) for d in range(1,5)]
 v_mc
@@ -324,19 +301,8 @@ v_mc
 
 $$ V=\frac{\pi^{n/2}}{\Gamma(n/2+1)}$$
 
-```{code-cell} ipython3
----
-deletable: false
-nbgrader:
-  cell_type: code
-  checksum: 7c4b883de7d1eae4551d935f47843331
-  grade: false
-  grade_id: cell-93a659f510135851
-  locked: false
-  schema_version: 3
-  solution: true
-  task: false
----
+```python
+
 # Utlisation de la fonction gamma afin de calculer les volumes
 from scipy.special import gamma
 def vol_gam(R,d):
