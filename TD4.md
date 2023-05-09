@@ -12,19 +12,7 @@ kernelspec:
   name: python3
 ---
 
-Merci de **ne pas modifier** le nom de ce notebook (même pour y inclure son nom).
-
-Quelques conseils:
-- pour exécutez une cellule, cliquez sur le bouton *Exécuter* ci-dessus ou tapez **Shift+Enter**
-- si l'exécution d'une cellule prend trop de temps, sélectionner dans le menu ci-dessus *Noyau/Interrompre*
-- en cas de très gros plantage *Noyau/Redémarrer*
-- **sauvegardez régulièrement vos réponses** en cliquant sur l'icone disquette ci-dessus à gauche, ou *Fichier/Créer une nouvelle sauvegarde*
-
-----------------------------------------------------------------------------
-
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "fe47841d2edc9f0b224f6bb8638be750", "grade": false, "grade_id": "cell-aeeecf2146843580", "locked": true, "schema_version": 3, "solution": false, "task": false}}
-
-# TD 4 : intégrales avancées
+# Intégrales avancées
 
 +++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "05d1519d22cb80b3840678ab8c97685f", "grade": false, "grade_id": "cell-2b22dd5258782534", "locked": true, "points": 3, "schema_version": 3, "solution": false, "task": true}}
 
