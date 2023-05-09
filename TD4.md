@@ -99,23 +99,11 @@ plt.title("Tracé de la fonction")
 plt.show()
 ```
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "6e66b8200d09b890a4f0a3150b681f9b", "grade": false, "grade_id": "cell-3268300f667b1614", "locked": true, "points": 2, "schema_version": 3, "solution": false, "task": true}}
 
 - Utiliser la fonction dblquad du module `integrate` de `scipy` pour obtenir une valeur de référence.
 
-```{code-cell} ipython3
----
-deletable: false
-nbgrader:
-  cell_type: code
-  checksum: e5ecee8cf02a97c3a2d7cf2a02224b71
-  grade: false
-  grade_id: cell-652523070f08ee62
-  locked: false
-  schema_version: 3
-  solution: true
-  task: false
----
+```python
+
 def f1(y,x):
     return y*np.sin(x)+x*np.cos(y)
 
@@ -123,7 +111,6 @@ I = integrate.dblquad(f1,np.pi,2*np.pi,0,np.pi)
 I
 ```
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "56327a8d4cb59a80d1fb3e3e8719b3f6", "grade": false, "grade_id": "cell-909ef68d403cd177", "locked": true, "points": 9, "schema_version": 3, "solution": false, "task": true}}
 
 - Evaluer cette intégrale en écrivant vos propres algorithmes pour la méthode des rectangles, de Gauss-Legendre et Monte-Carlo.
 
@@ -136,19 +123,7 @@ $$I= \frac{V}{4}\sum_{i=1}^N \sum_{j=1}^N f(x_p[i],y_p[j])w_x[i]w_y[j]$$
     - Méthodes Monte-Carlo :
 $$I= \frac{V}{N}\sum_{i=1}^N f(x[i],y[i])$$
 
-```{code-cell} ipython3
----
-deletable: false
-nbgrader:
-  cell_type: code
-  checksum: 4910f976a4a1e966f55060d74f708264
-  grade: false
-  grade_id: cell-56791223f3949227
-  locked: false
-  schema_version: 3
-  solution: true
-  task: false
----
+```python3
 import time
 
 #Methode des rectangles
@@ -207,11 +182,9 @@ fin_mc = time.time()
 print('temps :',fin_mc-depart_mc,'s')
 ```
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "c2dfc4204defa51e96c6b8ae0f2645d4", "grade": false, "grade_id": "cell-a82c704c3176f6f5", "locked": true, "schema_version": 3, "solution": false, "task": false}}
-
 - Commenter la précision et le temps approximatif d'exécution de ces différentes méthodes.
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "69c2f142fa6da40de5193ca17eb8b7a2", "grade": false, "grade_id": "cell-6c94c0308780e461", "locked": true, "schema_version": 3, "solution": false, "task": false}}
+
 
 ## Exercice 3 : tracé et calcul de l'aire d'une ellipse par méthode Monte-Carlo
 
@@ -221,20 +194,7 @@ $$ \left(\frac{x}{a}\right)^2 + \left(\frac{y}{b}\right)^2 =1$$
 
 On peut alors tracer l'ellipse de manière paramétrique de la façon suivante :
 
-```{code-cell} ipython3
----
-deletable: false
-editable: false
-nbgrader:
-  cell_type: code
-  checksum: b53f8fa6f988615bc870b29ac2241a2d
-  grade: false
-  grade_id: cell-47bd98633eebd338
-  locked: true
-  schema_version: 3
-  solution: false
-  task: false
----
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -256,24 +216,11 @@ plt.ylabel("y")
 plt.show()
 ```
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "06f63431bba8834c8d7ab5c4693c74a7", "grade": false, "grade_id": "cell-97b55399d953b3f6", "locked": true, "points": 2, "schema_version": 3, "solution": false, "task": true}}
 
 - Tirer, de manière aléatoire et avec une distribution uniforme, des points dans le plan dans une gamme au moins aussi large le rectangle $[-a,a]\times [-b,b]$. 
 - Afficher ces points comme marqueurs par dessus l'ellipse.
 
-```{code-cell} ipython3
----
-deletable: false
-nbgrader:
-  cell_type: code
-  checksum: 5b755711ea2250e2a629826f79d7bae6
-  grade: false
-  grade_id: cell-a1fbf34a5095e061
-  locked: false
-  schema_version: 3
-  solution: true
-  task: false
----
+```python
 x_r = np.random.uniform(-a,a,size=N)
 y_r = np.random.uniform(-b,b,size=N)
 N=10**4
@@ -286,23 +233,10 @@ plt.ylabel("y")
 plt.show()
 ```
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "f83af9412b5aefab0f2dc39ac485ae95", "grade": false, "grade_id": "cell-33f3dfbf2d301454", "locked": true, "points": 2, "schema_version": 3, "solution": false, "task": true}}
-
 - Établisser un critère mathématique pour déterminer si un point est à l'intérieur de l'ellipse et indiquer respectivement par des marqueurs verts et rouges les points à l'intérieur et à l'extérieur de l'ellipse. On pourra utiliser `np.where`.
 
-```{code-cell} ipython3
----
-deletable: false
-nbgrader:
-  cell_type: code
-  checksum: d8affd4f388429bf95595a0254f1fd48
-  grade: false
-  grade_id: cell-3ee1f982fe3189db
-  locked: false
-  schema_version: 3
-  solution: true
-  task: false
----
+```python
+
 #Utilisation de np.where pour trouver les points contenus dans l'ellipse.
 in_ell = np.where(((x_r**2)/a**2)+((y_r**2)/b**2)<1)
 out_ell = np.where(((x_r**2)/a**2)+((y_r**2)/b**2)>=1)
@@ -317,23 +251,10 @@ plt.ylabel("y")
 plt.show()
 ```
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "b49f1c2a4831316e1e1612613167b7e6", "grade": false, "grade_id": "cell-44b2a2266afd58b3", "locked": true, "points": 2, "schema_version": 3, "solution": false, "task": true}}
-
 - Calculer l'aire de l'ellipse par intégration Monte-Carlo en utilisant $10^4$ points et comparez à la valeur analytique attendue.
 
-```{code-cell} ipython3
----
-deletable: false
-nbgrader:
-  cell_type: code
-  checksum: 3347cf64a8a1239e66ccd6a8588054a5
-  grade: false
-  grade_id: cell-20739f01afdcdcba
-  locked: false
-  schema_version: 3
-  solution: true
-  task: false
----
+```ipython
+
 #Aire de l'ellipse gràace à la méthode MC
 aire = (12)*(np.shape(in_ell)[1])/N
 print(aire)
@@ -350,7 +271,6 @@ print(err*100,'%')
 #C'est très précis
 ```
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "83ebc80d43df4620ddeb7c92c3646ae0", "grade": false, "grade_id": "cell-2cc886f51f12f286", "locked": true, "points": 3, "schema_version": 3, "solution": false, "task": true}}
 
 ## Exercice 4 : calcul du volume d'hypersphères par la méthode Monte-Carlo
 Dans un espace à d dimensions, une sphère de rayon $R$ est définie par (voir par exemple la page wikipedia [n-sphères](https://fr.wikipedia.org/wiki/N-sph%C3%A8re)):
@@ -380,8 +300,6 @@ def vol_hyp(R,N,d):
     return len(in_hyp)*((2*R)**d)/N
 ```
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "e552b9849c7b2ad24770541e4c5460fd", "grade": false, "grade_id": "cell-357132859e5660c0", "locked": true, "points": 4, "schema_version": 3, "solution": false, "task": true}}
-
 - Calculer ce volume pour une hypersphère de rayon = 1 et en dimension n=1, 2, 3 et 4.
 
 ```{code-cell} ipython3
@@ -401,8 +319,6 @@ nbgrader:
 v_mc = [vol_hyp(1,N,d) for d in range(1,5)]
 v_mc
 ```
-
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "471180f7f8922797838a5e2d2f45c8cc", "grade": false, "grade_id": "cell-9f87040a70923e72", "locked": true, "points": 2, "schema_version": 3, "solution": false, "task": true}}
 
 - Comparer les valeurs obtenues aux valeurs exactes, vous pourrez utiliser la fonction gamma du module scipy.special. 
 
@@ -434,13 +350,5 @@ print(v_g)
 
 err = np.abs(np.array(v_g)-np.array(v_mc))/np.array(v_g)*100
 print(err)
-
-
-
-
     
-```
-
-```{code-cell} ipython3
-
 ```
