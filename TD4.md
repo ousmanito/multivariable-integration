@@ -1,16 +1,3 @@
----
-jupytext:
-  formats: ipynb,md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.5
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
 
 # Intégrales avancées
 
@@ -22,19 +9,8 @@ $$I = \int\limits_{-\pi}^{\pi} \cos^2(x) {\rm d}x $$
 
 - Utiliser la fonction quad du module `integrate` de `scipy` et vérifier qu'on obtient bien la valeur attendue $\pi$.
 
-```{code-cell} ipython3
----
-deletable: false
-nbgrader:
-  cell_type: code
-  checksum: 36591f1950a8d590a5ef535a1a03b3f1
-  grade: false
-  grade_id: cell-65f324a4720645fd
-  locked: false
-  schema_version: 3
-  solution: true
-  task: false
----
+```python
+
 #Importation des  modules
 import numpy as np
 import matplotlib.pyplot as plt
@@ -52,23 +28,9 @@ I = integrate.quad(f,-np.pi,np.pi)
 print(I)
 ```
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "034b128a1e405704475c1d75ca6df64f", "grade": false, "grade_id": "cell-7014596865b03f3d", "locked": true, "points": 4, "schema_version": 3, "solution": false, "task": true}}
-
 - Coder votre algorithme d'intégration par la méthode de Gauss-Legendre pour $N=10$ pas d'échantillonage. L'appliquer à l'intégrale ci-dessus.
 
-```{code-cell} ipython3
----
-deletable: false
-nbgrader:
-  cell_type: code
-  checksum: 37a0d7f3e7eb94d247efce3cae68072e
-  grade: false
-  grade_id: cell-2515b32950fdc268
-  locked: false
-  schema_version: 3
-  solution: true
-  task: false
----
+```python
 # Determination des poids et des noeuds
 
 N = 10
@@ -82,23 +44,10 @@ print(J)
 #On retrouve bien pi
 ```
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "fa23a0600e9144e9af75dcd2d9873685", "grade": false, "grade_id": "cell-6bba2e43c1d526c7", "locked": true, "points": 4, "schema_version": 3, "solution": false, "task": true}}
-
 - Evaluer et représenter dans un graphique l'erreur relative commise en fonction de $N \in [2, 100]$. Commenter le résultat.
 
-```{code-cell} ipython3
----
-deletable: false
-nbgrader:
-  cell_type: code
-  checksum: 6b86e8f1812cd596fdc3747ffe84bf22
-  grade: false
-  grade_id: cell-cfab152eec366946
-  locked: false
-  schema_version: 3
-  solution: true
-  task: false
----
+```python
+
 #Erreur relative et abcisse
 
 y = [(np.abs(J-I[0]))/np.pi for N in range(2,101)]
@@ -116,7 +65,7 @@ plt.show()
 # Gauss Legendre est très précise.
 ```
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "204726dc129757c624a6c2cd30999efc", "grade": false, "grade_id": "cell-5c211aa781632702", "locked": true, "points": 2, "schema_version": 3, "solution": false, "task": true}}
+
 
 ## Exercice 2 : calcul d'une intégrale à 2 dimensions
 
@@ -126,19 +75,7 @@ $$I = \int\limits_{x=\pi}^{2\pi} \int\limits_{y=0}^{\pi} \left[y \sin(x) + x \co
 
 - Représenter la fonction pour $x\in [-10\pi, 10\pi], y\in [-10\pi, 10\pi]$.
 
-```{code-cell} ipython3
----
-deletable: false
-nbgrader:
-  cell_type: code
-  checksum: 681a7239bfb948a0cf7bb220fd031f56
-  grade: false
-  grade_id: cell-129e2b5032877940
-  locked: false
-  schema_version: 3
-  solution: true
-  task: false
----
+```python
 #Fonction 
 def f(x,y):
     return y*np.sin(x)+x*np.cos(y)
