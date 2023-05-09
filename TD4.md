@@ -14,8 +14,6 @@ kernelspec:
 
 # Intégrales avancées
 
-+++ {"deletable": false, "editable": false, "nbgrader": {"cell_type": "markdown", "checksum": "05d1519d22cb80b3840678ab8c97685f", "grade": false, "grade_id": "cell-2b22dd5258782534", "locked": true, "points": 3, "schema_version": 3, "solution": false, "task": true}}
-
 ## Exercice 1 : intégration de Gauss-Legendre
 
 On se propose d'évaluer numériquement l'intégrale suivante par deux méthodes :
